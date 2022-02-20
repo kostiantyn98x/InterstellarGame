@@ -428,23 +428,6 @@ export async function getUserCoins(provider, wallet) {
 }
 
 
-export async function getWalletAddress(wallet) {
-    const accs = await wallet.getAccounts()
-    return accs[0]
-}
-export function getCoinBalances(coins){
-    const balances = new Map;
-    for (const coin of coins) {
-      const balance = balances.get(coin.typeArg)
-      if (balance === undefined) {
-        balances.set(coin.typeArg, coin.balance.value)
-      } else {
-        balances.set(coin.typeArg, balance + coin.balance.value)
-      }
-    }
-    return balances
-}
-
 export function getCoinSymbols(coins){
     const balances = new Map;
     for (const coin of coins) {

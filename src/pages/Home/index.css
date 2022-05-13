@@ -1,0 +1,110 @@
+.logo-border {
+    border-color: rgb(40 160 240);
+    border-width: 2px;
+    border-radius: 900px;
+    padding: 4px;
+}
+.logo {
+    width: 50px;
+    height: 50px;
+}
+.header-label > div {
+    padding: 12px 23px;
+}
+.mobile-label {
+    background-color: rgb(34, 34, 34);
+    margin-bottom: 15px;
+    border-radius: 12px;
+}
+.mobile-label > div {
+    padding: 12px 13px;
+}
+.wallet-btn-custom {
+    width: 231px;
+    border: 1px solid rgb(45, 45, 45);
+    color: white;
+    border-radius: 12px;
+    padding: 7px 18px;
+}
+.but-custom {
+    height: 40px;
+    /* width: 170px; */
+    text-align: center;
+    margin: 0 12px;
+    background-color: rgb(40 160 240);
+    border-radius: 7px;
+    border-width: 0;
+    cursor: pointer;
+}
+.but-custom > img {
+    width: 20px;
+    height: 20px;
+}
+.footer > div  {
+    margin: 0 12px;
+}
+.content {
+    /* position: absolute;
+    z-index: 1;
+    width: 98%; */
+}
+.footer > div > img {
+    width: 38px;
+    height: 30px;
+}
+.blue-hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 2px;
+    border-color: rgb(40 160 240);
+}
+.airdrop-box {
+    /* width: 500px; */
+    background-color: rgb(21, 21, 21);
+    margin: auto;
+    text-align: center;
+    border-radius: 25px;    
+    overflow: hidden;
+    position: relative;
+}
+.w-500 {
+    width: 500px;
+}
+.airdrop-icon {
+    margin: auto;
+    display: inline-block;
+}
+.bg-blue2 {
+    background-color: rgb(40 160 240);
+    border-radius: 7px;
+    border-width: 0;
+    height: 40px;
+    cursor: pointer;
+}
+.hidden-line {
+    position: fixed;
+    top: 0px;
+}
+.blur-background {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    background: linear-gradient(90deg,rgb(15, 52, 199),rgb(81, 145, 188));
+    border-radius: 50%;
+    bottom: 300px;
+    filter: blur(75px);
+    -webkit-filter: blur(75px);
+    left: -100px;
+    top: 0%;
+    opacity: .5;
+    position: absolute;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    width: 300px;
+    height: 120px;
+}
+.ml-50 {
+    margin-left: 330px;
+}

@@ -53,7 +53,7 @@ mainCoinList.map(item => {
     label: item,
   }
   mainCoin.push(value);
-})
-return mainCoin;
+  })
+  return mainCoin;
 }
   

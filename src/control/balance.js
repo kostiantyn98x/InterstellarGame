@@ -5,10 +5,6 @@ export class Balance {
     this.typeArg = typeArg;
     this.value = value;
   }
-
-  static fromMoveObjectField(type, field) {
-    return new Balance(type, BigInt(field))
-  }
 }
 
 

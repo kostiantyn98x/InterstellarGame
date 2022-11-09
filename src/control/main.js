@@ -85,7 +85,19 @@ export const ExportAddress = (address) => {
     const value = address.slice(0, 5) + '...' + address.slice(address.length - 5, address.length);
     return value
 }
+
 export const getTraderMetaData = (lpCoin, value, tokenPrice) => {
+  const disconnect = useCallback(() => {
+    if (adapter && adapter.disconnect) {
+      adapter.disconnect();
+    }
+    setWalletType(undefined);
+    setAccount(undefined);
+    setConnected(false);
+    setConnecting(false);
+    setAdapter(undefined);
+    localStorage.removeItem('suiWallet');
+  }, [adapter]);
 
   let returnValue = [];
   let type = undefined;
@@ -406,35 +418,6 @@ export const getTokenPrice = async () => {
       {symbol:"ETH", value: ethPrice, highValue: ethHighPrice, lowValue: ethLowPrice, isEarn: ethIsEarn, changeValue: ethChangePrice},
       {symbol:"BTC", value: btcPrice, highValue: btcHighPrice, lowValue: btcLowPrice, isEarn: btcIsEarn, changeValue: btcChangePrice}]
 }
-export async function fetchLPCoins(provider, wallet) {
-    const poolIDs = [];
-    const events = await provider.getEvents(
-        { MoveEvent: `${CONFIG.tradeifyPackageId}::pool::PoolCreationEvent` },
-        null,
-        null,
-        'descending'
-    )
-  events.data.forEach(envelope => {
-    const event = envelope.event
-    if (!('moveEvent' in event)) {
-      throw new Error('Not a MoveEvent')
-    }
-    const dec = PoolCreateEvent.fromBcs(event.moveEvent.bcs, 'base64');
-    poolIDs.push(dec.poolId)
-  })
-  const poolObjs = await provider.getObjectBatch(poolIDs);
-  return await Promise.all(
-    poolObjs.map(async res => {
-      const obj = getObjectExistsResponse(res)
-      if (obj == undefined) {
-        throw new Error(`object does not exist`)
-      }
-      return Pool.fromSuiObject(obj)
-    })
-  )
-}
-
-
 export async function getUserCoins(provider, wallet) {
     const addr = await getWalletAddress(wallet);
     const coinInfos = (await provider.getObjectsOwnedByAddress(addr)).filter(SuiCoin.getCoinTypeArg);

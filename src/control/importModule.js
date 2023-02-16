@@ -57,11 +57,3 @@ mainCoinList.map(item => {
 return mainCoin;
 }
   
-
-
-export const getSwapPrice = (inPool, outPool, value) => {
-  let bigIntAmount = changeBigNumber(value);
-  let USDAmount = calcSwapOut(inPool, bigIntAmount, true);
-  let SecondTokenAmount = calcSwapOut(outPool, USDAmount, false);
-  return changeDecimal8Fix(SecondTokenAmount);
-  }

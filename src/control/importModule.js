@@ -58,14 +58,6 @@ return mainCoin;
 }
   
 
-export const isLoggedIn = () => {
-  const account = localStorage.getItem('walletAddress');
-  if(account == undefined || account == "null" || account == "undefined") {
-    return false;
-  } else {
-    return true;
-  }
-}
 
 export const getSwapPrice = (inPool, outPool, value) => {
   let bigIntAmount = changeBigNumber(value);
